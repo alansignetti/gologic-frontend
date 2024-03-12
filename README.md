@@ -1,27 +1,25 @@
-# Gologic
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
+### Booking Platform
 
-## Development server
+Design a booking platform for users to rent a room. Users should see a list of rooms available
+for rent and be able to click into them to see details about that room. A room at a minimum
+should have the following details:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+* Title
+* Images
+* Price
+* Description
+* Address
+* Capacity of room
 
-## Code scaffolding
+Users should then be able book that room using their email address, the dates they require and
+how many people will be staying. They should not be able to book a room on a date that has
+already been booked or doesn't have the capacity for the amount of people they require.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- guests in filters 
+- checkin and checkout date pickers in home component
+- create bookingRequest
+- receive bookingRequests, and filter by date
+- call the post to try to save it in localstorage
+- should throw an error if already exists a bookingRequest with the same roomId and startdate or endate
+- should throw an error  if doesn't have the capacity for the amount of people they require

@@ -1,0 +1,51 @@
+<div class="container">
+  <h2>{{ room?.title }}</h2>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner rounded-5">
+          <div
+            *ngFor="let image of room?.images; let i = index"
+            class="carousel-item {{ i === 0 ? 'active' : '' }}"
+          >
+            <img
+              class="d-block w-100"
+              [src]="'../../assets/img/' + image"
+              alt="{{ room?.title }}"
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#roomCarousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#roomCarousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <p class="lead">Price: ${{ room?.price }} per night</p>
+      <p>Capacity:{{ room?.capacity }} <i class="bi-people-fill"></i></p>
+      <p>Address: {{ room?.address }}</p>
+      <p>{{ room?.description }}</p>
+    </div>
+    <button
+      [routerLink]="['/booking', roomId]"
+      class="btn btn-primary mt-3 w-50"
+    >
+      Book Now
+    </button>
+  </div>
+</div>

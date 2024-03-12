@@ -1,0 +1,37 @@
+<div class="container">
+  <h2>Available Rooms</h2>
+
+  <app-datepicker (searchRooms)="onSearchRooms($event)"></app-datepicker>
+
+  <div class="row">
+    <div class="col-md-4 mb-3" *ngFor="let room of rooms">
+      <div
+        class="card card-container"
+        [ngClass]="{ 'disabled-card': !selectedCheckInDate }"
+      >
+        <img
+          class="card-img-top"
+          [src]="'../../assets/img/' + room.images[0]"
+          alt="{{ room.title }}"
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ room.title }}</h5>
+          <p class="card-text">{{ room.description | slice : 0 : 80 }}...</p>
+          <div class="d-flex justify-content-between">
+            <span class="text-muted"
+              >Capacity: {{ room.capacity }} <i class="bi-people-fill"></i
+            ></span>
+
+            <span class="text-muted">${{ room.price }} per night</span>
+          </div>
+          <a
+            *ngIf="selectedCheckInDate"
+            [routerLink]="['/rooms', room.id]"
+            class="btn btn-primary"
+            >See Details</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

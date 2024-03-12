@@ -1,0 +1,26 @@
+<form class="container" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="email">Email Address:</label>
+    <input
+      type="email"
+      class="form-control email"
+      id="email"
+      name="email"
+      required
+      [(ngModel)]="booking.email"
+    />
+  </div>
+
+  <div class="form-group">
+    <label for="guests">Number of Guests:</label>
+    <input
+      type="number"
+      min="1"
+      class="form-control guests"
+      id="guests"
+      name="guests"
+      required
+      [(ngModel)]="booking.guests"
+    />
+  </div>
+</form>
