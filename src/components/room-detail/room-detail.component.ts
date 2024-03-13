@@ -56,7 +56,7 @@ export class RoomDetailComponent implements OnInit {
       email: this.bookingForm.value.email,
       checkinDate: this.checkInDate,
       checkoutDate: this.checkOutDate,
-      guests: this.guestCount,
+      guestCount: this.guestCount,
     };
 
     this.roomService.createBooking(bookingData).subscribe({
@@ -75,9 +75,10 @@ export class RoomDetailComponent implements OnInit {
           title: 'Error Creating Booking!',
           text: error || 'An unknown error occurred.',
         });
+        this.isLoading = false;
       },
       complete: () => {
-        this.isLoading = false; // Reset loading state
+        this.isLoading = false;
       },
     });
   }

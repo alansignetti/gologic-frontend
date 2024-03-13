@@ -6,5 +6,5 @@ export interface BookingRequest {
   checkinDate: string;
   checkoutDate: string;
   email: string;
-  guests: number;
+  guestCount: number;
 }
