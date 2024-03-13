@@ -10,7 +10,6 @@ import { By } from '@angular/platform-browser';
 describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
-  let mockRoomService: RoomService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
