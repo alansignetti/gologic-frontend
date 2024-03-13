@@ -24,6 +24,22 @@
       [min]="minDate"
     />
   </div>
+
+  <div class="form-group guest-container">
+    <label for="guestCount">Guests:</label>
+    <select
+      class="form-select"
+      id="guestCount"
+      name="guestCount"
+      [(ngModel)]="selectedGuestCount"
+      required
+    >
+      <option value="1">1 Person</option>
+      <option value="2">2 People</option>
+      <option value="3">3 People</option>
+      <option value="4">4 People</option>
+    </select>
+  </div>
   <button
     type="button"
     class="btn btn-outline-primary search-button rounded-5"

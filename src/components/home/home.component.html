@@ -4,6 +4,12 @@
   <app-datepicker (searchRooms)="onSearchRooms($event)"></app-datepicker>
 
   <div class="row">
+    <div class="col-md-12" *ngIf="!rooms.length">
+      <div class="alert alert-info" role="alert">
+        No rooms available for these dates. Please try selecting different
+        dates.
+      </div>
+    </div>
     <div class="col-md-4 mb-3" *ngFor="let room of rooms">
       <div
         class="card card-container"
@@ -21,12 +27,16 @@
             <span class="text-muted"
               >Capacity: {{ room.capacity }} <i class="bi-people-fill"></i
             ></span>
-
             <span class="text-muted">${{ room.price }} per night</span>
           </div>
           <a
             *ngIf="selectedCheckInDate"
             [routerLink]="['/rooms', room.id]"
+            [queryParams]="{
+              checkInDate: selectedCheckInDate,
+              checkOutDate: selectedCheckOutDate,
+              guestCount: selectedGuestCount
+            }"
             class="btn btn-primary"
             >See Details</a
           >

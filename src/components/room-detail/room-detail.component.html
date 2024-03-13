@@ -9,7 +9,7 @@
             class="carousel-item {{ i === 0 ? 'active' : '' }}"
           >
             <img
-              class="d-block w-100"
+              class="d-block w-100 img-room"
               [src]="'../../assets/img/' + image"
               alt="{{ room?.title }}"
             />
@@ -40,10 +40,22 @@
       <p>Capacity:{{ room?.capacity }} <i class="bi-people-fill"></i></p>
       <p>Address: {{ room?.address }}</p>
       <p>{{ room?.description }}</p>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          class="form-control email"
+          id="email"
+          [(ngModel)]="userEmail"
+          required
+        />
+      </div>
     </div>
+
     <button
-      [routerLink]="['/booking', roomId]"
       class="btn btn-primary mt-3 w-50"
+      [disabled]="!userEmail.trim()"
+      (click)="makeBooking()"
     >
       Book Now
     </button>

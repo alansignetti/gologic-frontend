@@ -9,11 +9,14 @@
   width: 224px;
 }
 
+.guest-container {
+  width: 120px;
+}
+
 .search-btn {
   height: 38px;
 }
 
-// copilot media para mobile y tablet
 @media (max-width: 1000px) {
   .date-picker-container {
     flex-direction: column;

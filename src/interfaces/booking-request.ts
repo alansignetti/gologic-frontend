@@ -1,7 +1,10 @@
 import { Room } from './room';
 export interface BookingRequest {
-  bookingRequest: number;
-  room: Room;
-  checkinDate: Date;
-  checkoutDate: Date;
+  bookingRequest?: number;
+  roomId: number;
+  room?: Room;
+  checkinDate: string;
+  checkoutDate: string;
+  email: string;
+  guests: number;
 }

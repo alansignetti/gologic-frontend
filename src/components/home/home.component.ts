@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Room } from '../../interfaces/room';
 import { RoomService } from '../../services/room-service.service';
-import { Observable } from 'rxjs'; // Import Observable
-import { DatepickerComponent } from '../datepicker/datepicker.component';
 
 @Component({
   selector: 'app-home',
@@ -13,20 +11,31 @@ export class HomeComponent implements OnInit {
   rooms: Room[] = [];
   selectedCheckInDate: Date | null = null;
   selectedCheckOutDate: Date | null = null;
+  selectedGuestCount: number = 1;
 
   constructor(private roomService: RoomService) {}
 
   ngOnInit(): void {
-    this.roomService.getAvailableRooms().subscribe((rooms: Room[]) => {
+    this.roomService.getRooms().subscribe((rooms: Room[]) => {
       this.rooms = rooms;
     });
   }
 
-  onSearchRooms(dates: { checkInDate: Date; checkOutDate: Date }) {
-    this.selectedCheckInDate = dates.checkInDate;
-    this.selectedCheckOutDate = dates.checkOutDate;
+  onSearchRooms(filter: {
+    checkInDate: Date;
+    checkOutDate: Date;
+    guestCount: number;
+  }) {
+    this.selectedCheckInDate = filter.checkInDate;
+    this.selectedCheckOutDate = filter.checkOutDate;
+    this.selectedGuestCount = filter.guestCount;
+
     this.roomService
-      .getAvailableRooms(dates.checkInDate, dates.checkOutDate)
+      .getAvailableRooms(
+        filter.checkInDate,
+        filter.checkOutDate,
+        this.selectedGuestCount
+      )
       .subscribe((availableRooms: Room[]) => {
         this.rooms = availableRooms;
       });

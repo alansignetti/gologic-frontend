@@ -1,0 +1,16 @@
+.email {
+  width: 70%;
+}
+.img-room {
+  height: 250px;
+}
+
+// media mobile
+@media (max-width: 1000px) {
+  .row {
+    justify-content: center;
+  }
+  .email {
+    width: 90%;
+  }
+}
