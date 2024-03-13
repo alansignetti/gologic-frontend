@@ -13,12 +13,13 @@ export class HomeComponent implements OnInit {
   selectedCheckOutDate: Date | null = null;
   selectedGuestCount: number = 1;
   isSearched: boolean = false;
-
+  isLoading = true;
   constructor(private roomService: RoomService) {}
 
   ngOnInit(): void {
     this.roomService.getRooms().subscribe((rooms: Room[]) => {
       this.rooms = rooms;
+      this.isLoading = false;
     });
   }
 
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
     checkOutDate: Date;
     guestCount: number;
   }) {
+    this.isLoading = true;
     this.selectedCheckInDate = filter.checkInDate;
     this.selectedCheckOutDate = filter.checkOutDate;
     this.selectedGuestCount = filter.guestCount;
@@ -39,6 +41,7 @@ export class HomeComponent implements OnInit {
       )
       .subscribe((availableRooms: Room[]) => {
         this.rooms = availableRooms;
+        this.isLoading = false;
       });
   }
 }

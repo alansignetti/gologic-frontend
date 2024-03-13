@@ -4,6 +4,11 @@
   <app-datepicker (searchRooms)="onSearchRooms($event)"></app-datepicker>
 
   <div class="row">
+    <div class="col-md-12 text-center" *ngIf="isLoading">
+      <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
     <div class="col-md-12" *ngIf="!rooms.length && isSearched">
       <div class="alert alert-info" role="alert">
         No rooms available for these dates. Please try selecting different
@@ -12,6 +17,7 @@
     </div>
     <div class="col-md-4 mb-3" *ngFor="let room of rooms">
       <div
+        *ngIf="!isLoading"
         class="card card-container"
         [ngClass]="{ 'disabled-card': !selectedCheckInDate }"
       >
