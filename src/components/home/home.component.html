@@ -4,7 +4,7 @@
   <app-datepicker (searchRooms)="onSearchRooms($event)"></app-datepicker>
 
   <div class="row">
-    <div class="col-md-12" *ngIf="!rooms.length">
+    <div class="col-md-12" *ngIf="!rooms.length && isSearched">
       <div class="alert alert-info" role="alert">
         No rooms available for these dates. Please try selecting different
         dates.
@@ -17,7 +17,7 @@
       >
         <img
           class="card-img-top"
-          [src]="'../../assets/img/' + room.images[0]"
+          [src]="'/src/assets/img/' + room.images[0]"
           alt="{{ room.title }}"
         />
         <div class="card-body">

@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   selectedCheckInDate: Date | null = null;
   selectedCheckOutDate: Date | null = null;
   selectedGuestCount: number = 1;
+  isSearched: boolean = false;
 
   constructor(private roomService: RoomService) {}
 
@@ -29,7 +30,7 @@ export class HomeComponent implements OnInit {
     this.selectedCheckInDate = filter.checkInDate;
     this.selectedCheckOutDate = filter.checkOutDate;
     this.selectedGuestCount = filter.guestCount;
-
+    this.isSearched = true;
     this.roomService
       .getAvailableRooms(
         filter.checkInDate,
