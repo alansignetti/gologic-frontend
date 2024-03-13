@@ -33,7 +33,7 @@ This challenge involved building a Booking Platform where users can:
 ## Experience with Technologies:
 
 - My experience in Frontend with Angular, React, Typescript, Bootstrap is around 3 years.
-- I have used Node.js with Express for backend development previously, including a freelance project at [Atelier Sushi](https://sushiatelier.co.uk/).
+- I have used Node.js with Express for backend development previously, including a freelance project at [Atelier Sushi](https://ateliersushi.co/).
 
 
 ## Notes:
