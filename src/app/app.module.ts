@@ -7,7 +7,6 @@ import { HomeComponent } from '../components/home/home.component';
 import { RoomDetailComponent } from '../components/room-detail/room-detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DatepickerComponent } from '../components/datepicker/datepicker.component';
-import { RouterTestingModule } from '@angular/router/testing';
 import { RoomService } from '../services/room-service.service';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { RoomService } from '../services/room-service.service';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterTestingModule,
     ReactiveFormsModule,
   ],
   declarations: [
