@@ -12,12 +12,14 @@ This repository contains the frontend code for a Booking Platform challenge, bui
 **Backend (Separate Repository, Not Included Here):**
 - Node.js: Utilized for server-side logic and API development.
 - Express: Framework for creating the backend API.
-- MongoDB: NoSQL database for storing booking information (Backend Repository Required).
+- MongoDB: NoSQL database for storing booking information.
 
 ## Deployment:
 
-**Frontend:** Deployed on GitHub Pages ([https://alansignetti.github.io/gologic-frontend/]).
-**Backend:** Deployed on Vercel ([https://github.com/alansignetti/gologic-backend]),[Repo](https://github.com/alansignetti/gologic-backend)
+**Frontend:** Deployed on GitHub Pages ([https://alansignetti.github.io/gologic-frontend/])
+
+**Backend:** Deployed on Vercel ([https://github.com/alansignetti/gologic-backend])
+
 **Database:** Hosted on MongoDB Atlas.
 
 ## Challenge Description:
@@ -30,8 +32,9 @@ This challenge involved building a Booking Platform where users can:
 
 ## Experience with Technologies:
 
-- I have used Node.js with Express for backend development previously, including a freelance project at [Atelier Sushi](https://sushiatelier.co.uk/).
 - My experience in Frontend with Angular, React, Typescript, Bootstrap is around 3 years.
+- I have used Node.js with Express for backend development previously, including a freelance project at [Atelier Sushi](https://sushiatelier.co.uk/).
+
 
 ## Notes:
 
