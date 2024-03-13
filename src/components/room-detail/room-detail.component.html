@@ -1,8 +1,8 @@
 <div class="container">
   <h2>{{ room?.title }}</h2>
   <div class="row">
-    <div class="col-md-6">
-      <div class="carousel slide" data-bs-ride="carousel">
+    <div class="col-md-6 carousel-container">
+      <div class="carousel slide" data-bs-ride="carousel" id="roomCarousel">
         <div class="carousel-inner rounded-5">
           <div
             *ngFor="let image of room?.images; let i = index"
@@ -40,24 +40,44 @@
       <p>Capacity:{{ room?.capacity }} <i class="bi-people-fill"></i></p>
       <p>Address: {{ room?.address }}</p>
       <p>{{ room?.description }}</p>
-      <div class="form-group">
-        <label for="email">Email:</label>
-        <input
-          type="email"
-          class="form-control email"
-          id="email"
-          [(ngModel)]="userEmail"
-          required
-        />
-      </div>
+      <form [formGroup]="bookingForm">
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            class="form-control email"
+            id="email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            formControlName="email"
+            required
+          />
+          <div *ngIf="bookingForm.get('email')?.invalid">
+            <div *ngIf="bookingForm.get('email')?.errors?.['required']">
+              Email is required.
+            </div>
+            <div *ngIf="bookingForm.get('email')?.errors?.['pattern']">
+              Please enter a valid email address (e.g., name&#64;example.com).
+            </div>
+          </div>
+        </div>
+        <button
+          class="btn btn-primary mt-3 w-50 btn-with-spinner"
+          [disabled]="bookingForm.invalid || isLoading"
+          (click)="makeBooking()"
+        >
+          <span *ngIf="!isLoading">Book Now</span>
+          <span *ngIf="isLoading">
+            <button class="btn btn-primary" type="button" disabled>
+              <span
+                class="spinner-border spinner-border-sm"
+                role="status"
+                aria-hidden="true"
+              ></span>
+              Loading...
+            </button>
+          </span>
+        </button>
+      </form>
     </div>
-
-    <button
-      class="btn btn-primary mt-3 w-50"
-      [disabled]="!userEmail.trim()"
-      (click)="makeBooking()"
-    >
-      Book Now
-    </button>
   </div>
 </div>

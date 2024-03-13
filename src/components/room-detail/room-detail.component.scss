@@ -1,10 +1,21 @@
 .email {
   width: 70%;
 }
+
 .img-room {
   height: 250px;
 }
 
+.carousel-container {
+  height: 280px;
+}
+
+.btn-with-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+}
 // media mobile
 @media (max-width: 1000px) {
   .row {

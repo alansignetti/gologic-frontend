@@ -30,21 +30,14 @@
   justify-self: center;
   color: white;
   text-align: center;
+  cursor: pointer;
 }
 
-// .header-text {
-//   position: absolute; /* Make the text element positioned relative to its container */
-//   top: 50%; /* Position the top of the text at 50% of the container's height */
-//   left: 50%; /* Position the left side of the text at 50% of the container's width */
-//   transform: translate(
-//     -50%,
-//     -50%
-//   ); /* Center the text horizontally and vertically within the container */
-//   color: white; /* Maintain white color for the text */
-//   margin: 0; /* Remove any default margin */
-// }
+.header-text:hover {
+  transform: scale(1.1);
+}
 
-// medai mobile
+// media mobile
 @media (max-width: 1000px) {
   .header-image {
     height: 150px;

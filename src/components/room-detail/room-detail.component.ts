@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Room } from '../../interfaces/room';
 import { RoomService } from '../../services/room-service.service';
@@ -17,15 +18,20 @@ export class RoomDetailComponent implements OnInit {
   checkOutDate: string = '';
   userEmail: string = '';
   guestCount: number = 1;
-
+  bookingForm: FormGroup;
+  isLoading = false;
   private roomService: RoomService;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    roomService: RoomService
+    roomService: RoomService,
+    private fb: FormBuilder
   ) {
     this.roomService = roomService;
+    this.bookingForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]], // Email control with required and email validation
+    });
   }
 
   ngOnInit(): void {
@@ -44,9 +50,10 @@ export class RoomDetailComponent implements OnInit {
   }
 
   makeBooking() {
+    this.isLoading = true;
     const bookingData: BookingRequest = {
       roomId: this.roomId,
-      email: this.userEmail,
+      email: this.bookingForm.value.email,
       checkinDate: this.checkInDate,
       checkoutDate: this.checkOutDate,
       guests: this.guestCount,
@@ -68,6 +75,9 @@ export class RoomDetailComponent implements OnInit {
           title: 'Error Creating Booking!',
           text: error || 'An unknown error occurred.',
         });
+      },
+      complete: () => {
+        this.isLoading = false; // Reset loading state
       },
     });
   }
