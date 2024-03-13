@@ -1,25 +1,39 @@
+# GoLogic Frontend - Booking Platform Challenge
 
-### Booking Platform
+This repository contains the frontend code for a Booking Platform challenge, built using Angular with Bootstrap and SweetAlert. The backend utilizes Node.js with Express and MongoDB for data storage.
 
-Design a booking platform for users to rent a room. Users should see a list of rooms available
-for rent and be able to click into them to see details about that room. A room at a minimum
-should have the following details:
+## Technologies:
 
-* Title
-* Images
-* Price
-* Description
-* Address
-* Capacity of room
+**Frontend:**
+- Angular: Used for building the single-page application.
+- Bootstrap: Employed for layout and styling.
+- SweetAlert: Incorporated for user interaction with alerts and confirmations.
 
-Users should then be able book that room using their email address, the dates they require and
-how many people will be staying. They should not be able to book a room on a date that has
-already been booked or doesn't have the capacity for the amount of people they require.
+**Backend (Separate Repository, Not Included Here):**
+- Node.js: Utilized for server-side logic and API development.
+- Express: Framework for creating the backend API.
+- MongoDB: NoSQL database for storing booking information (Backend Repository Required).
 
-<!-- - guests in filters  -->
-<!-- - checkin and checkout date pickers in home component -->
-<!-- - create bookingRequest -->
-<!-- - receive bookingRequests, and filter by date -->
+## Deployment:
 
-- should throw an error if already exists a bookingRequest with the same roomId and startdate or endate
-- should throw an error  if doesn't have the capacity for the amount of people they require
+**Frontend:** Deployed on GitHub Pages ([https://alansignetti.github.io/gologic-frontend/]).
+**Backend:** Deployed on Vercel ([https://github.com/alansignetti/gologic-backend]),[Repo](https://github.com/alansignetti/gologic-backend)
+**Database:** Hosted on MongoDB Atlas.
+
+## Challenge Description:
+
+This challenge involved building a Booking Platform where users can:
+- View a list of available rooms.
+- Click on a room to see details like title, images, price, description, address, and capacity.
+- Book a room by specifying their email address, desired dates, and number of guests.
+- Validation to prevent booking a room on unavailable dates or exceeding the room's capacity.
+
+## Experience with Technologies:
+
+- I have used Node.js with Express for backend development previously, including a freelance project at [Atelier Sushi](https://sushiatelier.co.uk/).
+- My experience in Frontend with Angular, React, Typescript, Bootstrap is around 3 years.
+
+## Notes:
+
+- The backend code for this project resides in a separate repository due to its complexity and modularity. You can find it at [Link to Backend Repository (https://github.com/alansignetti/gologic-backend)].
+- This repository only contains the frontend code for the booking platform.
